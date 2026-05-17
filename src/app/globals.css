@@ -3,25 +3,61 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #FAFAFA;
   --foreground: #171717;
+  --card-bg: #FFFFFF;
+  --border-color: #E5E5E5;
+  --text-muted: #666666;
+  --accent-black: #000000;
 }
 
+/* Ensure no dark-mode overrides unless specifically requested. We will support a very clean, low-contrast dark mode as a fallback if the user's OS prefers dark, but it will still be incredibly high-end. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0A0A0A;
+    --foreground: #F5F5F5;
+    --card-bg: #121212;
+    --border-color: #262626;
+    --text-muted: #A3A3A3;
+    --accent-black: #FFFFFF;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Academic style custom elements */
+.academic-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.academic-card:hover {
+  border-color: var(--accent-black);
+  transform: translateY(-2px);
+}
+
+/* Thin premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Custom smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
