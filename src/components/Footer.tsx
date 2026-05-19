@@ -24,22 +24,22 @@ export default function Footer() {
   const { name, email, github, linkedin, devPortfolio } = portfolioData.personalInfo;
 
   return (
-    <footer className="py-12 md:py-16 bg-white dark:bg-black border-t border-[var(--border-color)]">
+    <footer className="py-12 md:py-16 bg-white border-t border-[var(--border-color)]">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <p className="font-serif text-base font-bold text-neutral-900 dark:text-white">
+          <p className="font-serif text-base font-bold text-neutral-950">
             {name}
           </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+          <p className="text-xs text-neutral-500 mt-1">
             Academic Portfolio &copy; {currentYear}. All Rights Reserved.
           </p>
         </div>
 
         {/* Links */}
-        <div className="flex flex-wrap items-center gap-6 text-xs font-semibold text-neutral-600 dark:text-neutral-400">
+        <div className="flex flex-wrap items-center gap-6 text-xs font-semibold text-neutral-600">
           <a
             href={`mailto:${email}`}
-            className="hover:text-black dark:hover:text-white transition-colors flex items-center space-x-1"
+            className="hover:text-black transition-colors flex items-center space-x-1"
           >
             <Mail className="w-3.5 h-3.5" />
             <span>Email</span>
@@ -48,7 +48,7 @@ export default function Footer() {
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors flex items-center space-x-1"
+            className="hover:text-black transition-colors flex items-center space-x-1"
           >
             <GithubIcon className="w-3.5 h-3.5" />
             <span>GitHub</span>
@@ -57,7 +57,7 @@ export default function Footer() {
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors flex items-center space-x-1"
+            className="hover:text-black transition-colors flex items-center space-x-1"
           >
             <LinkedinIcon className="w-3.5 h-3.5" />
             <span>LinkedIn</span>
@@ -66,7 +66,7 @@ export default function Footer() {
             href={devPortfolio}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white transition-colors flex items-center space-x-1 text-black dark:text-white"
+            className="hover:text-black transition-colors flex items-center space-x-1 text-black font-semibold"
           >
             <span>Developer Portfolio</span>
             <ArrowUpRight className="w-3.5 h-3.5" />

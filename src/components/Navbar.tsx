@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${isScrolled
-          ? "bg-white/80 dark:bg-black/80 backdrop-blur-md border-[var(--border-color)] py-3"
+          ? "bg-white/85 backdrop-blur-md border-[var(--border-color)] py-3 shadow-sm"
           : "bg-transparent border-transparent py-5"
         }`}
     >
@@ -49,7 +49,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-neutral-600 hover:text-neutral-950 transition-colors"
               >
                 {link.label}
               </a>
@@ -60,7 +60,7 @@ export default function Navbar() {
             href={portfolioData.personalInfo.devPortfolio}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center space-x-1 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-black dark:text-black dark:bg-white rounded hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all"
+            className="flex items-center space-x-1 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-neutral-900 rounded hover:bg-black transition-all shadow-sm"
           >
             <span>Dev Portfolio</span>
             <ArrowUpRight className="w-3 h-3" />
@@ -70,7 +70,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white focus:outline-none"
+          className="md:hidden p-2 text-neutral-600 hover:text-black focus:outline-none"
           aria-label="Toggle Menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -79,13 +79,13 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-black border-b border-[var(--border-color)] px-6 py-6 flex flex-col space-y-4 shadow-lg animate-in fade-in slide-in-from-top-5 duration-250">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-[var(--border-color)] px-6 py-6 flex flex-col space-y-4 shadow-lg animate-in fade-in slide-in-from-top-5 duration-250">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-base font-medium text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
+              className="text-base font-medium text-neutral-600 hover:text-black transition-colors"
             >
               {link.label}
             </a>
@@ -96,7 +96,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white bg-black dark:text-black dark:bg-white rounded hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all text-center"
+              className="flex items-center justify-between w-full px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white bg-neutral-900 rounded hover:bg-black transition-all text-center shadow-sm"
             >
               <span>Developer Portfolio</span>
               <ArrowUpRight className="w-4 h-4" />

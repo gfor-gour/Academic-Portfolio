@@ -25,8 +25,8 @@ export default function Hero() {
   const { name, institution, location, email, phone, github, linkedin } = portfolioData.personalInfo;
 
   return (
-    <section className="pt-32 pb-16 md:py-32 border-b border-[var(--border-color)]">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+    <section className="pt-32 pb-16 md:py-36 border-b border-[var(--border-color)]">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         {/* Bio Text Column */}
         <div className="col-span-1 md:col-span-7 flex flex-col justify-center order-2 md:order-1">
           <motion.div
@@ -34,16 +34,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">
+            <p className="text-xs uppercase tracking-widest text-neutral-500 font-bold mb-3">
               Academic Portfolio
             </p>
-            <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white mb-4">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-950 mb-4 leading-[1.1]">
               {name}
             </h1>
-            <p className="text-lg md:text-xl font-medium text-neutral-800 dark:text-neutral-200 mb-2 leading-relaxed">
-              Software Engineering Student
+            <p className="text-xl md:text-2xl font-medium text-neutral-800 mb-2 leading-relaxed">
+              Software Engineering Graduate
             </p>
-            <p className="text-base text-neutral-600 dark:text-neutral-400 mb-8 max-w-lg leading-relaxed">
+            <p className="text-base text-neutral-600 mb-8 max-w-lg leading-relaxed font-normal">
               {institution}
             </p>
           </motion.div>
@@ -53,27 +53,27 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col space-y-3.5 mb-8 text-sm text-neutral-700 dark:text-neutral-300"
+            className="flex flex-col space-y-4 mb-8 text-sm text-neutral-700"
           >
-            <div className="flex items-center space-x-3">
-              <MapPin className="w-4 h-4 text-neutral-400" />
+            <div className="flex items-center space-x-3.5">
+              <MapPin className="w-4 h-4 text-neutral-400 shrink-0" />
               <span>{location}</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <Mail className="w-4 h-4 text-neutral-400" />
-              <a href={`mailto:${email}`} className="hover:underline hover:text-black dark:hover:text-white transition-colors">
+            <div className="flex items-center space-x-3.5">
+              <Mail className="w-4 h-4 text-neutral-400 shrink-0" />
+              <a href={`mailto:${email}`} className="hover:underline hover:text-black transition-colors">
                 {email}
               </a>
             </div>
-            <div className="flex items-center space-x-3">
-              <Phone className="w-4 h-4 text-neutral-400" />
-              <a href={`tel:${phone}`} className="hover:underline hover:text-black dark:hover:text-white transition-colors">
+            <div className="flex items-center space-x-3.5">
+              <Phone className="w-4 h-4 text-neutral-400 shrink-0" />
+              <a href={`tel:${phone}`} className="hover:underline hover:text-black transition-colors">
                 {phone}
               </a>
             </div>
           </motion.div>
 
-          {/* Social Icons & CTAs */}
+          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,7 +84,7 @@ export default function Hero() {
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 border border-[var(--border-color)] rounded-full text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all"
+              className="p-2.5 border border-[var(--border-color)] rounded-full text-neutral-500 hover:text-black hover:border-neutral-950 transition-all duration-300 hover:scale-105 shadow-sm bg-white"
               aria-label="GitHub Profile"
             >
               <GithubIcon className="w-5 h-5" />
@@ -93,7 +93,7 @@ export default function Hero() {
               href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 border border-[var(--border-color)] rounded-full text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all"
+              className="p-2.5 border border-[var(--border-color)] rounded-full text-neutral-500 hover:text-black hover:border-neutral-950 transition-all duration-300 hover:scale-105 shadow-sm bg-white"
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-5 h-5" />
@@ -101,26 +101,56 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Profile Picture Column */}
-        <div className="col-span-1 md:col-span-5 flex justify-center order-1 md:order-2">
+        {/* Profile Picture & Resume Column */}
+        <div className="col-span-1 md:col-span-5 flex flex-col items-center justify-center order-1 md:order-2 gap-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-64 h-64 md:w-80 md:h-80 group"
           >
-            {/* Minimalist framing/border */}
-            <div className="absolute inset-0 border border-neutral-300 dark:border-neutral-700 rounded-2xl transform translate-x-3 translate-y-3 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
-            <div className="relative w-full h-full overflow-hidden rounded-2xl border-2 border-black dark:border-white bg-neutral-100">
+            {/* Glowing dark type shadow/glow backdrop */}
+            <div className="absolute inset-0 bg-neutral-950/5 rounded-3xl blur-2xl transform translate-y-4 opacity-75 group-hover:translate-y-6 transition-all duration-500"></div>
+            {/* Outer offset frame */}
+            <div className="absolute inset-0 border border-neutral-300/80 rounded-3xl transform translate-x-3.5 translate-y-3.5 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"></div>
+            {/* Inner Image Container with glowing/shadow effect */}
+            <div className="relative w-full h-full overflow-hidden rounded-3xl border border-neutral-300/80 bg-white shadow-[0_12px_36px_rgba(0,0,0,0.1)] transition-all duration-300">
               <Image
                 src="/profile.png"
                 alt={name}
                 fill
                 priority
-                className="object-cover transition-all duration-500 ease-out"
+                className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.03]"
                 sizes="(max-w-768px) 100vw, 350px"
               />
             </div>
+          </motion.div>
+
+          {/* Resume Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="w-full max-w-[256px] md:max-w-[320px] px-3.5"
+          >
+            <a
+              href="/GourGupalTalukderShawon.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center space-x-2.5 w-full py-3 bg-neutral-950 hover:bg-black text-white font-medium rounded-2xl border border-neutral-900 transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:-translate-y-0.5"
+            >
+              <svg className="w-4 h-4 text-neutral-300 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <line x1="10" y1="9" x2="8" y2="9" />
+              </svg>
+              <span className="text-sm tracking-wide font-semibold">View Resume</span>
+              <svg className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </motion.div>
         </div>
       </div>

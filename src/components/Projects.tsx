@@ -14,38 +14,38 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 export default function Projects() {
   return (
-    <SectionWrapper id="projects">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+    <SectionWrapper id="projects" className="py-20 md:py-28">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Sidebar Header */}
-        <div className="col-span-1 md:col-span-4 sticky top-24">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
+        <div className="col-span-1 lg:col-span-4 lg:sticky lg:top-28">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-neutral-950">
             Projects & Coding
           </h2>
-          <p className="mt-2 text-sm text-neutral-500 max-w-xs leading-relaxed">
+          <p className="mt-2.5 text-sm text-neutral-500 max-w-xs leading-relaxed">
             A showcase of software platforms, machine learning systems, and problem-solving metrics demonstrating technical competence.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="col-span-1 md:col-span-8 space-y-12">
+        <div className="col-span-1 lg:col-span-8 space-y-16">
           {/* Projects Sub-section */}
           <div className="grid grid-cols-1 gap-8">
             {portfolioData.projects.map((project, index) => (
               <div
                 key={index}
-                className="p-6 border border-[var(--border-color)] bg-white dark:bg-neutral-900 rounded-xl hover:border-black dark:hover:border-white transition-all duration-300 group"
+                className="p-8 border border-[var(--border-color)] bg-white rounded-2xl hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300 group"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-serif text-xl font-bold text-neutral-900 dark:text-white">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="font-serif text-xl font-bold text-neutral-950">
                     {project.title}
                   </h3>
-                  <div className="flex items-center space-x-3 text-neutral-500 dark:text-neutral-400">
+                  <div className="flex items-center space-x-3.5 text-neutral-400 hover:text-black transition-colors">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-black dark:hover:text-white transition-colors"
+                        className="hover:text-black transition-colors p-1.5 border border-transparent hover:border-neutral-200 rounded-lg hover:bg-neutral-50"
                         aria-label={`${project.title} GitHub`}
                       >
                         <GithubIcon className="w-5 h-5" />
@@ -56,7 +56,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-black dark:hover:text-white transition-colors"
+                        className="hover:text-black transition-colors p-1.5 border border-transparent hover:border-neutral-200 rounded-lg hover:bg-neutral-50"
                         aria-label={`${project.title} Live`}
                       >
                         <ExternalLink className="w-5 h-5" />
@@ -65,17 +65,20 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <ul className="list-disc pl-4 space-y-2 mb-6 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <ul className="list-none space-y-3 mb-6 text-sm text-neutral-600 leading-relaxed font-normal">
                   {project.description.map((bullet, bIndex) => (
-                    <li key={bIndex}>{bullet}</li>
+                    <li key={bIndex} className="flex items-start space-x-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2.5 shrink-0" />
+                      <span>{bullet}</span>
+                    </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[var(--border-color)]">
+                <div className="flex flex-wrap gap-2 pt-5 border-t border-neutral-100">
                   {project.tools.map((tool, tIndex) => (
                     <span
                       key={tIndex}
-                      className="px-2.5 py-1 text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-800 rounded border border-[var(--border-color)]"
+                      className="px-3 py-1.5 text-xs font-semibold text-neutral-700 bg-neutral-50 rounded-lg border border-[var(--border-color)] shadow-sm"
                     >
                       {tool}
                     </span>
@@ -86,32 +89,32 @@ export default function Projects() {
           </div>
 
           {/* Algorithmic Problem Solving Section */}
-          <div className="pt-8 border-t border-[var(--border-color)]">
+          <div className="pt-10 border-t border-[var(--border-color)]">
             <div className="flex items-center space-x-2.5 mb-6">
-              <Code2 className="w-5 h-5 text-neutral-800 dark:text-white" />
-              <h3 className="text-sm font-bold tracking-wider text-neutral-800 dark:text-white uppercase">
+              <Code2 className="w-5 h-5 text-neutral-800" />
+              <h3 className="text-xs font-bold tracking-widest text-neutral-800 uppercase">
                 Algorithmic Problem Solving
               </h3>
             </div>
 
-            <div className="p-6 border border-[var(--border-color)] bg-white dark:bg-neutral-900 rounded-xl relative overflow-hidden group">
+            <div className="p-8 border border-[var(--border-color)] bg-white rounded-2xl relative overflow-hidden group hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300">
               {/* Subtle design element */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-50 dark:bg-neutral-800 rounded-bl-full -mr-12 -mt-12 -z-10 transition-transform group-hover:scale-105 duration-300" />
+              <div className="absolute top-0 right-0 w-36 h-36 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 -z-10 transition-transform group-hover:scale-105 duration-350" />
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div>
-                  <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider text-neutral-400 mb-1.5">
+                  <h4 className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
                     LeetCode Profile Highlights
                   </h4>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  <p className="text-sm text-neutral-700 leading-relaxed font-normal">
                     {portfolioData.algorithms.leetcode}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-[var(--border-color)]">
-                  <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider text-neutral-400 mb-1.5">
+                <div className="pt-6 border-t border-neutral-100">
+                  <h4 className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
                     Competitive Platforms
                   </h4>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  <p className="text-sm text-neutral-700 leading-relaxed font-normal">
                     {portfolioData.algorithms.other}
                   </p>
                 </div>
