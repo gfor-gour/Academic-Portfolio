@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 
+// Keep the portfolio statically generated and cached at the edge (ISR).
+export const revalidate = 3600;
+export const dynamic = "force-static";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
