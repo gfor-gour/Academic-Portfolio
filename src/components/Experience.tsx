@@ -32,7 +32,7 @@ export default function Experience() {
             
             <div className="space-y-8">
               {portfolioData.researchExperience.map((exp, index) => (
-                <div key={index} className="p-6 md:p-8 border border-[var(--border-color)] bg-white rounded-2xl hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300 relative group">
+                <div key={index} id={exp.role.toLowerCase().replace(/\s+/g, '-')} className="p-6 md:p-8 border border-[var(--border-color)] bg-white rounded-2xl hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300 relative group scroll-mt-28">
                   
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
                     <div>

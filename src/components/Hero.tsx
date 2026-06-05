@@ -21,6 +21,15 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const GoogleScholarIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-1.75a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5Z" />
+    <path d="M12 9.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" />
+    <path d="M1 7.5 12 1l11 6.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M22 7.5V14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);
+
 export default function Hero() {
   const { name, institution, location, email, phone, github, linkedin } = portfolioData.personalInfo;
 
@@ -43,9 +52,21 @@ export default function Hero() {
             <p className="text-xl md:text-2xl font-medium text-neutral-800 mb-2 leading-relaxed">
               Software Engineering Graduate
             </p>
-            <p className="text-base text-neutral-600 mb-8 max-w-lg leading-relaxed font-normal">
+            <p className="text-base text-neutral-600 mb-4 max-w-lg leading-relaxed font-normal">
               {institution}
             </p>
+
+            {/* Current Research Position */}
+            <a href="#intern-research-assistant" className="mb-8 flex items-start space-x-3 px-4 py-3 rounded-xl border border-emerald-200/80 bg-gradient-to-r from-emerald-50/80 to-teal-50/60 shadow-sm max-w-lg cursor-pointer hover:border-emerald-400 hover:shadow-md transition-all duration-300 group/pos">
+              <span className="mt-1 flex h-2 w-2 shrink-0 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="flex-1 text-sm leading-relaxed">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-neutral-800 group-hover/pos:text-neutral-950 transition-colors">Intern Research Assistant</span>
+                  <span className="text-xs text-neutral-500 whitespace-nowrap ml-3">Feb 2026 - Present</span>
+                </div>
+                <p className="text-neutral-600 mt-0.5">Advanced Machine Intelligence Research Lab, AIUB</p>
+              </div>
+            </a>
           </motion.div>
 
           {/* Quick Contact & Details */}
@@ -97,6 +118,16 @@ export default function Hero() {
               aria-label="LinkedIn Profile"
             >
               <LinkedinIcon className="w-5 h-5" />
+            </a>
+            <a
+              href="https://scholar.google.com/citations?user=yzrG7oQAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/gs flex items-center space-x-2 pl-2.5 pr-3.5 py-2 border border-[var(--border-color)] rounded-full text-neutral-500 hover:text-black hover:border-neutral-950 transition-all duration-300 hover:scale-105 shadow-sm bg-white"
+              aria-label="Google Scholar Profile"
+            >
+              <GoogleScholarIcon className="w-5 h-5" />
+              <span className="text-xs font-semibold tracking-wide">Google Scholar</span>
             </a>
           </motion.div>
         </div>
