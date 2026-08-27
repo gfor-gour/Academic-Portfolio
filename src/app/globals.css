@@ -3,49 +3,132 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF9F6;
-  --foreground: #1E293B;
-  --card-bg: #FFFFFF;
-  --border-color: #E2E8F0;
-  --text-muted: #64748B;
-  --accent-black: #0F172A;
+  /* ── Academic Warmth Palette ── */
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #EDE7DB;
+  --bg-elevated: #FDFBF7;
+
+  --text-primary: #1B2A4A;
+  --text-secondary: #4A5568;
+  --text-muted: #8B7E74;
+
+  --accent-burgundy: #7C2D3E;
+  --accent-burgundy-light: #F5EBF0;
+  --accent-gold: #B8860B;
+  --accent-gold-light: #F7F0E0;
+  --accent-sage: #5B7B6A;
+  --accent-sage-light: #EEF3F0;
+
+  --border-subtle: #D9D0C3;
+  --border-strong: #B8AD9E;
 }
 
 body {
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
 }
 
-/* Academic style custom elements */
+/* ── Academic Card ── */
 .academic-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .academic-card:hover {
-  border-color: var(--accent-black);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 24px rgba(27, 42, 74, 0.06);
   transform: translateY(-2px);
 }
 
-/* Thin premium scrollbar */
+/* ── Section Divider (journal-style thin rule) ── */
+.section-divider {
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+/* ── Gold Accent Bar (above section headings) ── */
+.accent-bar::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+/* ── Timeline Elements ── */
+.timeline-line {
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-gold) 0%,
+    var(--border-subtle) 100%
+  );
+  border-radius: 1px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 32px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-burgundy);
+  border: 3px solid var(--bg-primary);
+  z-index: 2;
+  box-shadow: 0 0 0 2px var(--accent-burgundy);
+}
+
+/* ── Thin premium scrollbar ── */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: var(--border-subtle);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--border-strong);
 }
 
-/* Custom smooth scrolling */
+/* ── Custom smooth scrolling ── */
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Gold ring for profile photo ── */
+.gold-ring {
+  box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px var(--accent-gold);
+}
+
+/* ── Keyword highlight style ── */
+.keyword-highlight {
+  color: var(--accent-burgundy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 45, 62, 0.2);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+/* ── Paper/thesis card subtle background ── */
+.paper-card {
+  background: linear-gradient(135deg, var(--accent-burgundy-light) 0%, var(--bg-elevated) 100%);
+  border: 1px solid rgba(124, 45, 62, 0.12);
+}
+
+.thesis-card {
+  background: linear-gradient(135deg, var(--accent-gold-light) 0%, var(--bg-elevated) 100%);
+  border: 1px solid rgba(184, 134, 11, 0.12);
 }

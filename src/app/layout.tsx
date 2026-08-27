@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 // Keep the portfolio statically generated and cached at the edge (ISR).
@@ -12,10 +12,11 @@ const inter = Inter({
   display: "swap",
 });
 
-const lora = Lora({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${lora.variable} font-sans antialiased`}
+        className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}
       >
         {children}
       </body>

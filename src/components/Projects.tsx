@@ -18,10 +18,12 @@ export default function Projects() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Sidebar Header */}
         <div className="col-span-1 lg:col-span-4 lg:sticky lg:top-28">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-neutral-950">
-            Projects & Coding
-          </h2>
-          <p className="mt-2.5 text-sm text-neutral-500 max-w-xs leading-relaxed">
+          <div className="accent-bar">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-ink">
+              Projects & Coding
+            </h2>
+          </div>
+          <p className="mt-2.5 text-sm text-ink-muted max-w-xs leading-relaxed">
             A showcase of software platforms, machine learning systems, and problem-solving metrics demonstrating technical competence.
           </p>
         </div>
@@ -33,19 +35,19 @@ export default function Projects() {
             {portfolioData.projects.map((project, index) => (
               <div
                 key={index}
-                className="p-8 border border-[var(--border-color)] bg-white rounded-2xl hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300 group"
+                className="p-8 border border-warm-border bg-parchment-deep rounded-2xl hover:border-warm-border-strong hover:shadow-[0_12px_24px_rgba(27,42,74,0.05)] transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-serif text-xl font-bold text-neutral-950">
+                  <h3 className="font-serif text-xl font-semibold text-ink">
                     {project.title}
                   </h3>
-                  <div className="flex items-center space-x-3.5 text-neutral-400 hover:text-black transition-colors">
+                  <div className="flex items-center space-x-3.5 text-ink-muted">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-black transition-colors p-1.5 border border-transparent hover:border-neutral-200 rounded-lg hover:bg-neutral-50"
+                        className="hover:text-burgundy transition-colors p-1.5 border border-transparent hover:border-warm-border rounded-lg hover:bg-parchment-light"
                         aria-label={`${project.title} GitHub`}
                       >
                         <GithubIcon className="w-5 h-5" />
@@ -56,7 +58,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-black transition-colors p-1.5 border border-transparent hover:border-neutral-200 rounded-lg hover:bg-neutral-50"
+                        className="hover:text-burgundy transition-colors p-1.5 border border-transparent hover:border-warm-border rounded-lg hover:bg-parchment-light"
                         aria-label={`${project.title} Live`}
                       >
                         <ExternalLink className="w-5 h-5" />
@@ -65,20 +67,20 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <ul className="list-none space-y-3 mb-6 text-sm text-neutral-600 leading-relaxed font-normal">
+                <ul className="list-none space-y-3 mb-6 text-sm text-ink-secondary leading-relaxed font-normal">
                   {project.description.map((bullet, bIndex) => (
                     <li key={bIndex} className="flex items-start space-x-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2.5 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-burgundy/40 mt-2.5 shrink-0" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-5 border-t border-neutral-100">
+                <div className="flex flex-wrap gap-2 pt-5 border-t border-warm-border/50">
                   {project.tools.map((tool, tIndex) => (
                     <span
                       key={tIndex}
-                      className="px-3 py-1.5 text-xs font-semibold text-neutral-700 bg-neutral-50 rounded-lg border border-[var(--border-color)] shadow-sm"
+                      className="px-3 py-1.5 text-xs font-semibold text-gold bg-gold-light rounded-lg border border-gold/15 shadow-sm"
                     >
                       {tool}
                     </span>
@@ -89,32 +91,32 @@ export default function Projects() {
           </div>
 
           {/* Algorithmic Problem Solving Section */}
-          <div className="pt-10 border-t border-[var(--border-color)]">
+          <div className="pt-10 border-t border-dashed border-warm-border">
             <div className="flex items-center space-x-2.5 mb-6">
-              <Code2 className="w-5 h-5 text-neutral-800" />
-              <h3 className="text-xs font-bold tracking-widest text-neutral-800 uppercase">
+              <Code2 className="w-5 h-5 text-burgundy" />
+              <h3 className="text-xs font-bold tracking-widest text-ink uppercase">
                 Algorithmic Problem Solving
               </h3>
             </div>
 
-            <div className="p-8 border border-[var(--border-color)] bg-white rounded-2xl relative overflow-hidden group hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300">
+            <div className="p-8 border border-warm-border bg-parchment-deep rounded-2xl relative overflow-hidden group hover:border-warm-border-strong hover:shadow-[0_12px_24px_rgba(27,42,74,0.05)] transition-all duration-300">
               {/* Subtle design element */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-neutral-50 rounded-bl-full -mr-12 -mt-12 -z-10 transition-transform group-hover:scale-105 duration-350" />
+              <div className="absolute top-0 right-0 w-36 h-36 bg-gold-light rounded-bl-full -mr-12 -mt-12 -z-10 transition-transform group-hover:scale-105 duration-500" />
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
+                  <h4 className="text-[10px] uppercase tracking-wider text-ink-muted font-bold mb-2">
                     LeetCode Profile Highlights
                   </h4>
-                  <p className="text-sm text-neutral-700 leading-relaxed font-normal">
+                  <p className="text-sm text-ink-secondary leading-relaxed font-normal">
                     {portfolioData.algorithms.leetcode}
                   </p>
                 </div>
-                <div className="pt-6 border-t border-neutral-100">
-                  <h4 className="text-[10px] uppercase tracking-wider text-neutral-400 font-bold mb-2">
+                <div className="pt-6 border-t border-warm-border/50">
+                  <h4 className="text-[10px] uppercase tracking-wider text-ink-muted font-bold mb-2">
                     Competitive Platforms
                   </h4>
-                  <p className="text-sm text-neutral-700 leading-relaxed font-normal">
+                  <p className="text-sm text-ink-secondary leading-relaxed font-normal">
                     {portfolioData.algorithms.other}
                   </p>
                 </div>

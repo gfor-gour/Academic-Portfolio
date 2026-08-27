@@ -84,11 +84,8 @@ export const portfolioData: PortfolioData = {
   researchInterests: [
     "Multi-agent LLM systems",
     "AI evaluation and benchmark design",
-    "Federated learning and privacy-preserving machine learning",
-    "Large language model alignment",
-    "Natural language processing",
-    "Software engineering automation",
-    "Distributed systems"
+    "LLM-assisted software engineering",
+    "Federated learning and privacy-preserving machine learning"
   ],
   education: [
     {
@@ -96,7 +93,7 @@ export const portfolioData: PortfolioData = {
       location: "Sylhet, Bangladesh",
       degree: "B.Sc. in Software Engineering",
       period: "Mar 2022 - May 2026",
-      gpa: "CGPA: 3.45 / 4.00 (through 7th semester)"
+      gpa: "CGPA: 3.52 / 4.00"
     }
   ],
   researchExperience: [
@@ -141,7 +138,7 @@ export const portfolioData: PortfolioData = {
       role: "Intern Research Assistant",
       organization: "Advanced Machine Intelligence Research Lab, AIUB",
       location: "Remote",
-      period: "Feb 2026 - Present",
+      period: "Feb 2026 - Jun 2026",
       bullets: [
         "Contributing to early-stage research on federated unlearning for LoRA-tuned LLMs, focusing on privacy-aware machine learning and GDPR 'Right to be Forgotten' compliance in decentralized environments.",
         "Assisting with literature review, dataset preparation, and preliminary experimental analysis for research involving non-IID federated learning, statistical heterogeneity metrics, and parameter-efficient fine-tuning workflows.",

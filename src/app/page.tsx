@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ResearchInterests from "@/components/ResearchInterests";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen">
         <Hero />
-        <ResearchInterests />
         <Education />
         <Experience />
         <Skills />

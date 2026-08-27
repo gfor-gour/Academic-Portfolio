@@ -20,10 +20,12 @@ export default function Awards() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Sidebar Info */}
         <div className="col-span-1 lg:col-span-4 lg:sticky lg:top-28">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-neutral-955">
-            Honors & Certifications
-          </h2>
-          <p className="mt-2.5 text-sm text-neutral-500 max-w-xs leading-relaxed">
+          <div className="accent-bar">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-ink">
+              Honors & Certifications
+            </h2>
+          </div>
+          <p className="mt-2.5 text-sm text-ink-muted max-w-xs leading-relaxed">
             Recognition received in engineering hackathons and professional cloud and artificial intelligence certifications.
           </p>
         </div>
@@ -35,31 +37,31 @@ export default function Awards() {
             {honors.map((honor, index) => (
               <div
                 key={index}
-                className="p-8 border border-[var(--border-color)] bg-white rounded-2xl hover:border-neutral-900 hover:shadow-[0_12px_24px_rgba(0,0,0,0.03)] transition-all duration-300 relative"
+                className="p-8 border border-warm-border bg-parchment-deep rounded-2xl hover:border-warm-border-strong hover:shadow-[0_12px_24px_rgba(27,42,74,0.05)] transition-all duration-300 relative"
               >
                 <div className="flex items-start space-x-5">
-                  <div className="p-3.5 border border-[var(--border-color)] rounded-xl bg-neutral-50 text-neutral-800 shadow-sm shrink-0">
+                  <div className="p-3.5 border border-gold/20 rounded-xl bg-gold-light text-gold shadow-sm shrink-0">
                     <Award className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-serif text-xl font-bold text-neutral-950">
+                    <h3 className="font-serif text-xl font-semibold text-ink">
                       {honor.title}
                     </h3>
-                    <p className="text-sm text-neutral-600 mt-2.5 leading-relaxed font-normal">
+                    <p className="text-sm text-ink-secondary mt-2.5 leading-relaxed font-normal">
                       {honor.description}
                     </p>
                     
                     {honor.links && (
-                      <div className="flex items-center space-x-4 mt-5 pt-4 border-t border-neutral-100">
+                      <div className="flex items-center space-x-4 mt-5 pt-4 border-t border-warm-border/50">
                         {honor.links.map((link, lIndex) => (
                           <a
                             key={lIndex}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center space-x-1.5 text-xs font-semibold text-neutral-700 hover:text-black transition-colors"
+                            className="inline-flex items-center space-x-1.5 text-xs font-semibold text-burgundy hover:text-[#6B2535] transition-colors"
                           >
-                            {link.name === "GitHub" ? <GithubIcon className="w-4 h-4 text-neutral-400" /> : <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />}
+                            {link.name === "GitHub" ? <GithubIcon className="w-4 h-4" /> : <ExternalLink className="w-3.5 h-3.5" />}
                             <span>{link.name}</span>
                           </a>
                         ))}
@@ -72,18 +74,18 @@ export default function Awards() {
           </div>
 
           {/* Certifications Sub-section */}
-          <div className="pt-10 border-t border-[var(--border-color)]">
-            <h3 className="text-xs font-bold tracking-widest text-neutral-400 uppercase mb-5">
+          <div className="pt-10 border-t border-dashed border-warm-border">
+            <h3 className="text-xs font-bold tracking-widest text-ink-muted uppercase mb-5">
               Professional Certifications
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {certifications.map((cert, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-3.5 p-4 border border-[var(--border-color)] bg-white rounded-xl hover:border-neutral-900 hover:shadow-[0_6px_18px_rgba(0,0,0,0.03)] transition-all duration-300"
+                  className="flex items-center space-x-3.5 p-4 border border-warm-border bg-parchment-deep rounded-xl hover:border-sage hover:shadow-[0_6px_18px_rgba(91,123,106,0.08)] transition-all duration-300"
                 >
-                  <ShieldCheck className="w-4 h-4 text-neutral-800 shrink-0" />
-                  <span className="text-xs font-semibold text-neutral-800">
+                  <ShieldCheck className="w-4 h-4 text-sage shrink-0" />
+                  <span className="text-xs font-semibold text-ink-secondary">
                     {cert}
                   </span>
                 </div>
