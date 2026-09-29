@@ -6,20 +6,31 @@ export interface Project {
   tools: string[];
 }
 
+export interface PaperResource {
+  name: string;
+  url: string;
+}
+
+export interface PaperItem {
+  title: string;
+  status: string;
+  badge?: string;
+  resources?: PaperResource[];
+  bullets?: string[];
+}
+
 export interface Experience {
   role: string;
   organization: string;
   location: string;
   period: string;
-  paper?: {
-    title: string;
-    status: string;
-    resources?: { name: string; url: string }[];
-  };
+  paper?: PaperItem;
+  papers?: PaperItem[];
   thesis?: {
     title: string;
     supervisor: string;
     paperUrl?: string;
+    status?: string;
   };
   bullets: string[];
 }
@@ -102,21 +113,34 @@ export const portfolioData: PortfolioData = {
       organization: "HiveMind Research Group",
       location: "Remote",
       period: "Jan 2026 - Present",
-      paper: {
-        title: "AgentCollabBench: Diagnosing When Good Agents Make Bad Collaborators",
-        status: "Under Review (NeurIPS 2026)",
-        resources: [
-          { name: "arXiv Preprint", url: "https://arxiv.org/pdf/2605.08647" },
-          { name: "GitHub", url: "https://anonymous.4open.science/r/AgentCollabBench_codebase" },
-          { name: "HuggingFace Dataset", url: "https://huggingface.co/datasets/AgentCollabBench/AgentCollabBench" }
-        ]
-      },
-      bullets: [
-        "Contributed to AgentCollabBench, a benchmark for evaluating reliability and communication failures in multi-agent LLM systems across Software Engineering, DevOps, and Data Engineering tasks.",
-        "Assisted in early-stage metric and dataset planning for controlled multi-agent evaluation scenarios, including experiments related to inter-agent influence and echo-chamber behavior; created structured JSON benchmark samples and task configurations.",
-        "Reviewed benchmark task structures, communication topologies, and annotation workflows to help improve dataset consistency and evaluation quality across collaborative agent pipelines.",
-        "Participated in collaborative benchmark development and research review processes, contributing to dataset validation, experimental refinement, and technical coordination within a distributed AI research team."
-      ]
+      papers: [
+        {
+          title: "AgentCollabBench: Diagnosing When Good Agents Make Bad Collaborators",
+          status: "NeurIPS 2026",
+          badge: "Accepted",
+          resources: [
+            { name: "arXiv Preprint", url: "https://arxiv.org/pdf/2605.08647" },
+            { name: "GitHub", url: "https://anonymous.4open.science/r/AgentCollabBench_codebase" },
+            { name: "HuggingFace Dataset", url: "https://huggingface.co/datasets/AgentCollabBench/AgentCollabBench" },
+            { name: "FAGEN, ICML 2026", url: "https://fagen-workshop.github.io/" }
+          ],
+          bullets: [
+            "Contributed to AgentCollabBench, a benchmark for evaluating collaboration failures and reliability in multiagent LLM systems.",
+            "Assisted with dataset design, benchmark construction, and evaluation setup for Software Engineering, DevOps, and Data Engineering tasks.",
+            "Participated in experiment design, dataset validation, and research discussions within a distributed AI research team."
+          ]
+        },
+        {
+          title: "Relevance is Not Obligation: Action-Relative Memory Activation for Tool-Using Agents",
+          status: "Submitted (ICLR 2027)",
+          badge: "Submitted",
+          bullets: [
+            "Contributed to the formulation of a dynamic obligation-aware framework that evaluates memory-action pairs at the action boundary to enforce hard constraints and mitigate agent execution failures.",
+            "Spearheaded dataset annotation and quality control for coding-domain memory–action pairs, validating action scopes, footprint parameters, and enforcement tiers under near-miss interference."
+          ]
+        }
+      ],
+      bullets: []
     },
     {
       role: "Undergraduate Thesis Student",
@@ -126,7 +150,8 @@ export const portfolioData: PortfolioData = {
       thesis: {
         title: "Commit Message Generation using LLMs with Issue-Based Context",
         supervisor: "Mahfuzur Rahman Emon, Lecturer, IICT, SUST",
-        paperUrl: "https://drive.google.com/drive/folders/16YGcs-Qw5AT1tFSZKXsh897jnwMTS2yd?usp=sharing"
+        paperUrl: "https://drive.google.com/drive/folders/16YGcs-Qw5AT1tFSZKXsh897jnwMTS2yd?usp=sharing",
+        status: "Paper Submitted"
       },
       bullets: [
         "Conducted a comparative study of GPT-4 Turbo, Claude 3.5, and Gemini 1.5 Pro on a curated dataset of 309 real-world issue-linked commits from high-authority repositories (freeCodeCamp, OWASP).",

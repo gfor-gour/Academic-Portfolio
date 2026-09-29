@@ -83,16 +83,36 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="mb-8 w-full max-w-xl"
         >
-          <a href="https://arxiv.org/pdf/2605.08647" target="_blank" rel="noopener noreferrer" className="flex items-start space-x-3 px-5 py-3.5 rounded-xl border border-burgundy/20 bg-burgundy-light/50 shadow-sm cursor-pointer hover:border-burgundy/40 hover:shadow-md transition-all duration-300 group/paper text-left">
-            <svg className="mt-1 w-4 h-4 shrink-0 text-burgundy" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <a
+            href="https://arxiv.org/pdf/2605.08647"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start space-x-3.5 px-5 py-4 rounded-xl border border-emerald-800/25 bg-gradient-to-r from-emerald-50/70 via-parchment-light to-parchment-deep shadow-sm cursor-pointer hover:border-emerald-700/50 hover:shadow-md transition-all duration-300 group/paper text-left"
+          >
+            <svg className="mt-1 w-4 h-4 shrink-0 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
               <polyline points="14 2 14 8 20 8" />
             </svg>
             <div className="flex-1 text-sm leading-relaxed">
-              <div className="flex items-center justify-between gap-2">
-                <span className="font-semibold text-ink group-hover/paper:text-burgundy transition-colors">AgentCollabBench: Diagnosing When Good Agents Make Bad Collaborators</span>
+              <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-800 text-white shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
+                  Accepted · NeurIPS 2026
+                </span>
+                <span className="text-[11px] font-medium text-ink-muted">
+                  FAGEN @ ICML 2026
+                </span>
               </div>
-              <p className="text-ink-muted mt-0.5 text-xs">Under Review — NeurIPS 2026 · <span className="text-burgundy font-medium group-hover/paper:underline">arXiv Preprint ↗</span></p>
+              <span className="font-serif font-semibold text-ink sm:text-base group-hover/paper:text-burgundy transition-colors block leading-snug">
+                AgentCollabBench: Diagnosing When Good Agents Make Bad Collaborators
+              </span>
+              <div className="flex items-center gap-2.5 mt-1.5 text-xs text-ink-muted flex-wrap">
+                <span className="text-burgundy font-medium group-hover/paper:underline flex items-center gap-1">
+                  arXiv Preprint ↗
+                </span>
+                <span>·</span>
+                <span className="text-ink-secondary">Multi-agent Reliability Benchmark</span>
+              </div>
             </div>
           </a>
         </motion.div>

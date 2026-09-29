@@ -67,9 +67,14 @@ export default function Experience() {
                     {/* Thesis Details */}
                     {exp.thesis && (
                       <div className="mb-6 p-5 thesis-card rounded-xl">
-                        <p className="text-[10px] uppercase tracking-wider text-ink-muted font-bold mb-1.5">
-                          Undergraduate Thesis
-                        </p>
+                        <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+                          <span className="inline-block px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-burgundy text-white rounded">
+                            {exp.thesis.status || "Paper Submitted"}
+                          </span>
+                          <span className="text-xs font-semibold text-ink-muted">
+                            Undergraduate Thesis
+                          </span>
+                        </div>
                         <h5 className="font-serif text-base font-semibold text-ink mb-2 leading-snug">
                           {exp.thesis.title}
                         </h5>
@@ -92,86 +97,170 @@ export default function Experience() {
                       </div>
                     )}
 
-                    {/* Research Paper Details */}
-                    {exp.paper && (
-                      <div className="mb-6 p-5 paper-card rounded-xl">
-                        <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
-                          <span className="inline-block px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-burgundy text-white rounded">
-                            Paper under review
-                          </span>
-                          <span className="text-xs font-semibold text-ink-muted">
-                            {exp.paper.status}
-                          </span>
+                    {/* Research Papers Details */}
+                    {(() => {
+                      const papersList = exp.papers && exp.papers.length > 0 ? exp.papers : (exp.paper ? [exp.paper] : []);
+                      if (papersList.length === 0) return null;
+
+                      const wordsToHighlight = [
+                        "AgentCollabBench",
+                        "NeurIPS 2026",
+                        "ICLR 2027",
+                        "Software Engineering",
+                        "DevOps",
+                        "Data Engineering",
+                        "multiagent LLM systems",
+                        "multiagent",
+                        "multi-agent",
+                        "LLM",
+                        "LLMs",
+                        "JSON",
+                        "obligation-aware",
+                        "action boundary",
+                        "hard constraints",
+                        "dataset annotation",
+                        "quality control",
+                        "coding-domain",
+                        "near-miss interference",
+                        "memory–action pairs",
+                        "memory-action pairs",
+                        "tool-using agents",
+                        "GPT-4 Turbo",
+                        "Claude 3.5",
+                        "Gemini 1.5 Pro",
+                        "BLEU",
+                        "BERTScore",
+                        "Next.js",
+                        "Node.js",
+                        "MongoDB",
+                        "federated unlearning",
+                        "LoRA-tuned",
+                        "GDPR",
+                        "non-IID",
+                        "spectral restoration",
+                        "diffusion-based",
+                        "React Native",
+                        "Expo",
+                        "REST APIs",
+                        "AWS Lambda",
+                        "distributed systems",
+                        "Agile"
+                      ];
+
+                      return (
+                        <div className="space-y-6 mb-6">
+                          {papersList.map((paper, pIndex) => (
+                            <div key={pIndex} className="p-5 paper-card rounded-xl">
+                              <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+                                <span className={`inline-block px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded text-white ${
+                                  paper.badge === "Accepted" || paper.status.toLowerCase().includes("accepted") || paper.status.toLowerCase().includes("neurips")
+                                    ? "bg-emerald-700"
+                                    : "bg-burgundy"
+                                }`}>
+                                  {paper.badge ? (paper.badge === "Accepted" ? "Paper Accepted" : `Paper ${paper.badge.toLowerCase()}`) : "Paper under review"}
+                                </span>
+                                <span className="text-xs font-semibold text-ink-muted">
+                                  {paper.status}
+                                </span>
+                              </div>
+                              <h5 className="font-serif text-base font-semibold text-ink mb-3 leading-snug">
+                                {paper.title}
+                              </h5>
+                              
+                              {paper.resources && paper.resources.length > 0 && (
+                                <div className="flex flex-wrap gap-2.5 mb-3.5">
+                                  {paper.resources.map((res, rIndex) => (
+                                    <a
+                                      key={rIndex}
+                                      href={res.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-ink-secondary bg-parchment-light border border-warm-border rounded-lg hover:border-burgundy hover:text-burgundy transition-colors shadow-sm"
+                                    >
+                                      <span>{res.name}</span>
+                                      <ExternalLink className="w-3 h-3 text-ink-muted" />
+                                    </a>
+                                  ))}
+                                </div>
+                              )}
+
+                              {paper.bullets && paper.bullets.length > 0 && (
+                                <ul className="list-none space-y-2.5 text-sm text-ink-secondary leading-relaxed font-normal pt-3 border-t border-warm-border/40">
+                                  {paper.bullets.map((bullet, bIndex) => {
+                                    let highlightedText = bullet;
+                                    wordsToHighlight.forEach(word => {
+                                      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                                      highlightedText = highlightedText.replace(regex, (match) => `<span class="keyword-highlight">${match}</span>`);
+                                    });
+
+                                    return (
+                                      <li key={bIndex} className="flex items-start space-x-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-burgundy/40 mt-2 shrink-0" />
+                                        <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              )}
+                            </div>
+                          ))}
                         </div>
-                        <h5 className="font-serif text-base font-semibold text-ink mb-4 leading-snug">
-                          {exp.paper.title}
-                        </h5>
-                        
-                        {exp.paper.resources && (
-                          <div className="flex flex-wrap gap-2.5">
-                            {exp.paper.resources.map((res, rIndex) => (
-                              <a
-                                key={rIndex}
-                                href={res.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-ink-secondary bg-parchment-light border border-warm-border rounded-lg hover:border-burgundy hover:text-burgundy transition-colors shadow-sm"
-                              >
-                                <span>{res.name}</span>
-                                <ExternalLink className="w-3 h-3 text-ink-muted" />
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                      </div>
+                      );
+                    })()}
+
+                    {/* Bullet points (for experiences with general bullets) */}
+                    {exp.bullets && exp.bullets.length > 0 && (
+                      <ul className="list-none space-y-3 text-sm text-ink-secondary leading-relaxed font-normal">
+                        {exp.bullets.map((bullet, bIndex) => {
+                          const wordsToHighlight = [
+                            "AgentCollabBench",
+                            "NeurIPS 2026",
+                            "ICLR 2027",
+                            "Software Engineering",
+                            "DevOps",
+                            "Data Engineering",
+                            "multiagent LLM systems",
+                            "multiagent",
+                            "multi-agent",
+                            "LLM",
+                            "JSON",
+                            "GPT-4 Turbo",
+                            "Claude 3.5",
+                            "Gemini 1.5 Pro",
+                            "BLEU",
+                            "BERTScore",
+                            "Next.js",
+                            "Node.js",
+                            "MongoDB",
+                            "federated unlearning",
+                            "LoRA-tuned",
+                            "GDPR",
+                            "non-IID",
+                            "spectral restoration",
+                            "diffusion-based",
+                            "React Native",
+                            "Expo",
+                            "REST APIs",
+                            "AWS Lambda",
+                            "distributed systems",
+                            "Agile"
+                          ];
+                          
+                          let highlightedText = bullet;
+                          wordsToHighlight.forEach(word => {
+                            const regex = new RegExp(`\\b${word}\\b`, 'gi');
+                            highlightedText = highlightedText.replace(regex, (match) => `<span class="keyword-highlight">${match}</span>`);
+                          });
+
+                          return (
+                            <li key={bIndex} className="flex items-start space-x-3">
+                              <span className="w-1.5 h-1.5 rounded-full bg-burgundy/40 mt-2.5 shrink-0" />
+                              <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
+                            </li>
+                          );
+                        })}
+                      </ul>
                     )}
-
-                    {/* Bullet points */}
-                    <ul className="list-none space-y-3 text-sm text-ink-secondary leading-relaxed font-normal">
-                      {exp.bullets.map((bullet, bIndex) => {
-                        const wordsToHighlight = [
-                          "AgentCollabBench",
-                          "Software Engineering",
-                          "DevOps",
-                          "Data Engineering",
-                          "LLM",
-                          "JSON",
-                          "GPT-4 Turbo",
-                          "Claude 3.5",
-                          "Gemini 1.5 Pro",
-                          "BLEU",
-                          "BERTScore",
-                          "Next.js",
-                          "Node.js",
-                          "MongoDB",
-                          "federated unlearning",
-                          "LoRA-tuned",
-                          "GDPR",
-                          "non-IID",
-                          "spectral restoration",
-                          "diffusion-based",
-                          "React Native",
-                          "Expo",
-                          "REST APIs",
-                          "AWS Lambda",
-                          "distributed systems",
-                          "Agile"
-                        ];
-                        
-                        let highlightedText = bullet;
-                        wordsToHighlight.forEach(word => {
-                          const regex = new RegExp(`\\b${word}\\b`, 'gi');
-                          highlightedText = highlightedText.replace(regex, (match) => `<span class="keyword-highlight">${match}</span>`);
-                        });
-
-                        return (
-                          <li key={bIndex} className="flex items-start space-x-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-burgundy/40 mt-2.5 shrink-0" />
-                            <span dangerouslySetInnerHTML={{ __html: highlightedText }} />
-                          </li>
-                        );
-                      })}
-                    </ul>
                   </div>
                 </div>
               ))}
