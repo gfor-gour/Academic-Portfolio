@@ -31,10 +31,10 @@ const GoogleScholarIcon = ({ className }: { className?: string }) => (
 );
 
 export default function Hero() {
-  const { name, institution, location, email, phone, github, linkedin } = portfolioData.personalInfo;
+  const { name, title, institution, location, email, phone, github, linkedin } = portfolioData.personalInfo;
 
   return (
-    <section className="pt-32 pb-16 md:pt-40 md:pb-24 section-divider">
+    <section className="pt-24 pb-16 md:pt-28 md:pb-24 section-divider">
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
         {/* Profile Photo with Gold Ring */}
         <motion.div
@@ -69,10 +69,10 @@ export default function Hero() {
             {name}
           </h1>
           <p className="text-lg md:text-xl font-medium text-ink-secondary mb-1.5 leading-relaxed">
-            Software Engineering Graduate
+            {title} <span className="text-ink-muted font-normal">· RunAgent Technology Limited</span>
           </p>
           <p className="text-sm text-ink-muted max-w-lg mx-auto leading-relaxed font-normal">
-            {institution}
+            B.Sc. in Software Engineering, SUST
           </p>
         </motion.div>
 

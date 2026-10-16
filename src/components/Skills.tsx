@@ -11,20 +11,24 @@ export default function Skills() {
         <div className="col-span-1 md:col-span-4">
           <div className="accent-bar">
             <h2 className="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-ink">
-              Technical Skills
+              Research &amp; Technical Skills
             </h2>
           </div>
           <p className="mt-2.5 text-sm text-ink-muted max-w-xs leading-relaxed">
-            Programming languages, framework proficiencies, database management, cloud environments, and developer operations.
+            Research methodology and ML tooling, backed by production-grade software engineering.
           </p>
         </div>
         <div className="col-span-1 md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {portfolioData.skills.map((skillGroup, index) => (
             <div
               key={index}
-              className="p-7 border border-warm-border bg-parchment-deep rounded-2xl hover:border-warm-border-strong hover:shadow-[0_12px_24px_rgba(27,42,74,0.05)] transition-all duration-300"
+              className={`p-7 border rounded-2xl hover:border-warm-border-strong hover:shadow-[0_12px_24px_rgba(27,42,74,0.05)] transition-all duration-300 ${
+                index === 0
+                  ? "sm:col-span-2 paper-card"
+                  : "border-warm-border bg-parchment-deep"
+              }`}
             >
-              <h3 className="text-[10px] uppercase tracking-wider text-ink-muted font-bold mb-4">
+              <h3 className={`text-[10px] uppercase tracking-wider font-bold mb-4 ${index === 0 ? "text-burgundy" : "text-ink-muted"}`}>
                 {skillGroup.category}
               </h3>
               <div className="flex flex-wrap gap-2.5">
